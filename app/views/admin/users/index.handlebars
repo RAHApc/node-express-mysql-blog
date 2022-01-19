@@ -1,0 +1,45 @@
+<!-- Top Report Wrap Start -->
+<div class="row">
+    <!-- Top Report Start -->
+    <div class="col-md-12 col-lg-12 mb-30">
+        <div class="box">
+            <div class="box-head has-operation">
+                <h4 class="title">لیست کاربران</h4>
+                <div class="operations">
+                    <a href="users/create" class="button button-primary">
+                        <span><i class="zmdi zmdi-plus"></i> ایجاد کاربر جدید</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>نام</th>
+                            <th>ایمیل</th>
+                            <th>تاریخ ایجاد</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                            <tr>
+                                <td>{{this.id}}</td>
+                                <td>
+                                    <a href="#">{{this.full_name}}</a>
+                                </td>
+                                <td>{{this.email}}</td>
+                                <td>{{this.jalali_created_at}}</td>
+                                <td>
+                                    <a href="/admin/users/edit/{{this.id}}"><i class="fa fa-pencil"></i></a>
+                                    <a href="/admin/users/delete/{{this.id}}"><i class="fa fa-remove"></i></a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div><!-- Top Report Wrap End -->

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-12 col-lg mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">ویرایش مطلب جدید</h4>
+            </div>
+            <div class="box-body">
+                <div class="row mbn-20">
+                    <form action="/admin/posts/update/{{post.id}}" method="POST">
+                        <div class="col-lg-6 col-12 mb-20">
+                            {{#if hasError}}
+                                <div class="alert alert-outline-danger" role="alert">
+                                    {{#each errors}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                            <div class="row mbn-15">
+                                <div class="col-12 mb-30">
+                                    <input type="text" name="title" value="{{post.title}}" class="form-control" placeholder="عنوان مطلب" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <input type="text" name="slug" value="{{post.slug}}" class="form-control" placeholder="نارمک مطلب" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <textarea name="content" class="form-control" placeholder="محتوا مطلب">{{post.content}}</textarea>
+                                </div>
+                                <div class="col-12 mb-15">
+                                    <select name="author_id" class="form-control">
+                                        {{#each users}}
+                                        <option value={{this.id}}
+                                            {{#isPostAuthor this.id}} selected {{/isPostAuthor}}
+                                        >{{this.full_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <h6 class="mb-15">وضعیت مطلب</h6>
+                                    <label><input type="radio" name="status" value="{{postStatus.DRAFT}}" {{#isSelectedStatus postStatus.DRAFT}} checked {{/isSelectedStatus}}/>پیش نویس</label>
+                                    <label><input type="radio" name="status" value="{{postStatus.REVIEW}}" {{#isSelectedStatus postStatus.REVIEW}} checked {{/isSelectedStatus}}/>در حال بازبینی</label>
+                                    <label><input type="radio" name="status" value="{{postStatus.PUBLISHED}}" {{#isSelectedStatus postStatus.PUBLISHED}} checked {{/isSelectedStatus}}/>منتشر شده</label>
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <button type="submit" class="button button-primary"><span>ذخیره سازی</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

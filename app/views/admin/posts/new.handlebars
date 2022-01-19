@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-12 col-lg mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">ایجاد مطلب جدید</h4>
+            </div>
+            <div class="box-body">
+                <div class="row mbn-20">
+                    <form action="/admin/posts/store" method="POST" enctype="multipart/form-data">
+                        <div class="col-lg-12 col-12 mb-20">
+                            {{#if hasError}}
+                                <div class="alert alert-outline-danger" role="alert">
+                                    {{#each errors}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                            <div class="row mbn-15">
+                                <div class="col-12 mb-30">
+                                    <input type="text" name="title" class="form-control" placeholder="عنوان مطلب" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <input type="text" name="slug" class="form-control" placeholder="نارمک مطلب" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <textarea id="content" name="content" class="form-control" placeholder="محتوا مطلب"></textarea>
+                                </div>
+                                <div class="col-12 mb-15">
+                                    <select name="author" class="form-control">
+                                        {{#each users}}
+                                        <option value={{this.id}}>{{this.full_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-15">
+                                    <label for="thumbnail">تصویر شاخص</label>
+                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control"/>
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <h6 class="mb-15">وضعیت مطلب</h6>
+                                    <label><input type="radio" name="status" value="0" checked />پیش نویس</label>
+                                    <label><input type="radio" name="status" value="1" />در حال بازبینی</label>
+                                    <label><input type="radio" name="status" value="2" />منتشر شده</label>
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <button type="submit" class="button button-primary"><span>ذخیره سازی</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

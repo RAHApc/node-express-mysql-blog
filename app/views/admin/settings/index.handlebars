@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">تنظیمات</h4>
+            </div>
+            <div class="box-body">
+                <form action="/admin/settings" method="POST">
+                    <div class="row mbn-20">
+                        <div class="col-lg-4 col-12 mb-20">
+                            <h6 class="mb-15">عمومی</h6>
+                            <div class="row mbn-15">
+                                <div class="col-12 mb-30">
+                                    <input type="text" name="website_title" value="{{presentedSettings.website_title}}" class="form-control"
+                                        placeholder="وب سایت" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <textarea name="website_description" class="form-control"
+                                        placeholder="توضیحات وب سایت">{{presentedSettings.website_description}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 mb-20">
+                            <h6 class="mb-15">محتوا</h6>
+                            <div class="row mbn-15">
+                                <div class="col-12 mb-30">
+                                    <input type="number" name="posts_per_page" value="{{presentedSettings.posts_per_page}}" class="form-control"
+                                        placeholder="تعداد مطالب هر صفحه" />
+                                </div>
+                                <div class="col-12 mb-30">
+                                    <label class="adomx-checkbox">
+                                        <input name="users_can_submit_comment" type="checkbox" {{#isChecked presentedSettings.users_can_submit_comment}} checked {{/isChecked}} />
+                                        <i class="icon"></i> کاربران میتوانند دیدگاه ثبت کنند
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12 mb-20">
+                            <h6 class="mb-15">عضویت</h6>
+                            <div class="row mbn-15">
+                                <div class="col-12 mb-30">
+                                    <label class="adomx-checkbox">
+                                        <input name="user_can_register" type="checkbox" {{#isChecked presentedSettings.user_can_register}} checked {{/isChecked}} />
+                                        <i class="icon"></i>
+                                        کسی می تواند ثبت نام کند
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-15">
+                            <button type="submit" class="button button-primary">ذخیره سازی</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
